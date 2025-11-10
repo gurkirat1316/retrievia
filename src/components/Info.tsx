@@ -266,9 +266,7 @@ const Info: React.FC = () => {
                         <p className="text-2xl font-semibold text-gray-800 mb-3 text-center">
                             Organize Your Thinking
                         </p>
-                        <p className="text-gray-600 text-center leading-relaxed mb-6">
-                            Upload your source material — whether it's PDFs, research notes, web articles, website urls, or transcripts — and let Retrievia's latest LLMs analyze the content to create polished AI summaries.
-                        </p>
+                        <p className="text-gray-600 text-center leading-relaxed mb-6">Upload your source material — whether it's PDFs, research notes, web articles, website urls, or transcripts — and let Retrievia's latest LLMs analyze the content to create polished AI summaries.</p>
                         <p className="text-indigo-600 font-semibold text-center">
                             Present with confidence
                         </p>
@@ -284,9 +282,7 @@ const Info: React.FC = () => {
                             Upload your notes, research files, PDFs, articles, or brainstorming documents.
                             Let Retrievia's advanced LLMs organize your content, reveal patterns to generate actionable ideas and new opportunities.
                         </p>
-                        <p className="text-indigo-600 font-semibold text-center">
-                            Turn information into inspiration
-                        </p>
+                        <p className="text-indigo-600 font-semibold text-center">Turn information into inspiration</p>
                     </div>
                 </div>
             </div>

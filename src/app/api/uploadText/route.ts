@@ -68,10 +68,13 @@ export async function POST(request: Request) {
         await indexChunks(chunks, fileName);
 
         return NextResponse.json({ message: "Text uploaded and indexed successfully!" });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error uploading text:", error);
+
+        const message = error instanceof Error ? error.message : "Error during upload";
+
         return NextResponse.json(
-            { message: "Error during upload", error: error.message },
+            { message: "Error during upload", error: message },
             { status: 500 }
         );
     }

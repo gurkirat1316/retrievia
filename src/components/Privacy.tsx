@@ -10,13 +10,7 @@ const PrivacyPolicyPage: React.FC = () => {
                     <h1 className="text-5xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
                 </div>
                 <section className="mb-12">
-                    <p className="text-lg leading-relaxed">
-                        Welcome to <span className="font-semibold text-gray-900">Retrievia</span>. Your privacy is
-                        important to us. This Privacy Policy explains how we collect, use, and protect your
-                        personal information when you use our services, website, and applications (collectively,
-                        the "Service"). By using Retrievia, you agree to the collection and use of information in
-                        accordance with this policy.
-                    </p>
+                    <p className="text-lg leading-relaxed">Welcome to <span className="font-semibold text-gray-900">Retrievia</span>. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our services, website, and applications (collectively, the "Service"). By using Retrievia, you agree to the collection and use of information in accordance with this policy.</p>
                 </section>
 
                 <section className="mb-12">
@@ -133,11 +127,7 @@ const PrivacyPolicyPage: React.FC = () => {
                     <h2 className="text-3xl font-semibold text-gray-900 mb-4">
                         9. Children's Privacy
                     </h2>
-                    <p>
-                        Retrievia does not knowingly collect personal data from individuals under the age of 13. If
-                        you believe a child has provided us with personal information, please contact us, and we
-                        will take steps to delete such information immediately.
-                    </p>
+                    <p>Retrievia does not knowingly collect personal data from individuals under the age of 13. If you believe a child has provided us with personal information, please contact us, and we will take steps to delete such information immediately.</p>
                 </section>
 
                 <section className="mb-12">

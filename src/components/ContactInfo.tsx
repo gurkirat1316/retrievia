@@ -8,10 +8,7 @@ const ContactInfo: React.FC = () => {
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-16">
                     <h1 className="text-5xl font-bold text-gray-900 mb-6">Contact Us</h1>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Have questions about Retrievia, pricing, or enterprise solutions?
-                        We'd love to hear from you. Our team usually responds within 24 hours.
-                    </p>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">Have questions about Retrievia, pricing, or enterprise solutions? We'd love to hear from you. Our team usually responds within 24 hours.</p>
                 </div>
 
                 <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 mb-16">

@@ -39,10 +39,15 @@ export async function POST(request: Request) {
     await fs.rmdir(tmpDir);
 
     return Response.json({ message: 'File uploaded and indexed successfully!' });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    console.error("Error during upload:", error);
+
+    const message = error instanceof Error ? error.message : "Error during upload";
+
     return Response.json(
-      { message: 'Error during upload', error: error.message },
+      { message, error: message },
       { status: 500 }
     );
   }
+
 }

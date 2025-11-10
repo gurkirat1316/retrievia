@@ -16,7 +16,7 @@ export const indexDocument = async (filePath: string) => {
     const chunkSize = 1000;
     const chunkedDocs = docs.flatMap(doc => {
         const chunks = [];
-        let docText = doc.pageContent;
+        const docText = doc.pageContent;
         for (let i = 0; i < docText.length; i += chunkSize) {
             chunks.push({
                 pageContent: docText.substring(i, i + chunkSize),

@@ -43,7 +43,7 @@ export async function POST(req: Request) {
         );
 
         // console.log("Searching for fileName:", fileName);
-        
+
 
         // Try without filter first to debug
         let relevantDocs;
@@ -70,7 +70,7 @@ export async function POST(req: Request) {
             console.log("Sample metadata:", allDocs[0]?.metadata);
             relevantDocs = allDocs.filter(doc => doc.metadata.fileName === fileName);
         }
-        
+
         // console.log("Found docs:", relevantDocs.length);
         // console.log("docs", relevantDocs)
 
@@ -93,10 +93,13 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ summary });
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error generating summary:", error);
+
+        const message = error instanceof Error ? error.message : "Failed to generate summary";
+
         return NextResponse.json(
-            { error: error.message || "Failed to generate summary" },
+            { error: message },
             { status: 500 }
         );
     }

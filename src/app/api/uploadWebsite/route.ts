@@ -57,10 +57,13 @@ export async function POST(req: Request) {
             message: "Website content indexed successfully!",
             totalChunks: chunks.length,
         });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error processing URL:", error);
+
+        const message = error instanceof Error ? error.message : "Error processing URL";
+
         return NextResponse.json(
-            { message: "Error processing URL", error: error.message },
+            { message: "Error processing URL", error: message },
             { status: 500 }
         );
     }
