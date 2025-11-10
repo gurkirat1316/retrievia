@@ -44,6 +44,7 @@ export async function POST(req: Request) {
 
         // console.log("Searching for fileName:", fileName);
         
+
         // Try without filter first to debug
         let relevantDocs;
         try {
