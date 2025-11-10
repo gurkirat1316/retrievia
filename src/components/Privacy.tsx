@@ -10,7 +10,13 @@ const PrivacyPolicyPage: React.FC = () => {
                     <h1 className="text-5xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
                 </div>
                 <section className="mb-12">
-                    <p className="text-lg leading-relaxed">Welcome to <span className="font-semibold text-gray-900">Retrievia</span>. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our services, website, and applications (collectively, the "Service"). By using Retrievia, you agree to the collection and use of information in accordance with this policy.</p>
+                    <p className="text-lg leading-relaxed">
+                        Welcome to <span className="font-semibold text-gray-900">Retrievia</span>.
+                        Your privacy is important to us. This Privacy Policy explains how we collect, use,
+                        and protect your personal information when you use our services, website, and applications
+                        (collectively, the &quot;Service&quot;). By using Retrievia, you agree to the collection
+                        and use of information in accordance with this policy.
+                    </p>
                 </section>
 
                 <section className="mb-12">
@@ -114,10 +120,10 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-12">
                     <h2 className="text-3xl font-semibold text-gray-900 mb-4">
-                        8. Third-Party Services
+                        8. Third-&nbsp;Party Services
                     </h2>
                     <p>
-                        Our Service may contain links to external websites or integrate third-party tools.
+                        Our Service may contain links to external websites or integrate third-&nbsp;party tools.
                         Retrievia is not responsible for the privacy practices or content of such websites. We
                         encourage you to review the privacy policies of any external sites you visit.
                     </p>
@@ -125,9 +131,13 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-12">
                     <h2 className="text-3xl font-semibold text-gray-900 mb-4">
-                        9. Children's Privacy
+                        9. Children&apos;s Privacy
                     </h2>
-                    <p>Retrievia does not knowingly collect personal data from individuals under the age of 13. If you believe a child has provided us with personal information, please contact us, and we will take steps to delete such information immediately.</p>
+                    <p>
+                        Retrievia does not knowingly collect personal data from individuals under the age of 13.
+                        If you believe a child has provided us with personal information, please contact us,
+                        and we will take steps to delete such information immediately.
+                    </p>
                 </section>
 
                 <section className="mb-12">
