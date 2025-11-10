@@ -4,7 +4,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { QdrantVectorStore } from "@langchain/qdrant";
-import { Document } from "langchain/document";
+import { Document } from "@langchain/core/documents";
 
 // Split text into chunks
 function chunkText(text: string, chunkSize = 500, overlap = 50) {

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { HTMLWebBaseLoader } from "@langchain/community/document_loaders/web/html";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { QdrantVectorStore } from "@langchain/qdrant";
-import { Document } from "langchain/document";
+import { Document } from "@langchain/core/documents";
 
 export async function POST(req: Request) {
     try {
