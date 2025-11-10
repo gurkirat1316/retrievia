@@ -12,7 +12,7 @@ const client = new OpenAI({
 export async function POST(req: Request) {
     try {
         const { fileName } = await req.json();
-        console.log("file", fileName)
+        // console.log("file", fileName)
 
         if (!fileName) {
             return NextResponse.json(
@@ -36,32 +36,46 @@ export async function POST(req: Request) {
         const vectorStore = await QdrantVectorStore.fromExistingCollection(
             embeddings,
             {
-                url: 'http://localhost:6333',
+                url: process.env.QDRANT_URL!,
+                apiKey: process.env.QDRANT_API_KEY!,
                 collectionName: 'ragger',
             }
         );
 
-        // const retriever = vectorStore.asRetriever({ k: 13 });
-        const retriever = vectorStore.asRetriever({
-            k: 30,
-            filter: {
-                must: [
-                    {
-                        key: "metadata.fileName",
-                        match: {
-                            value: fileName,
-                        },
-                    },
-                ],
-            },
-        });
-        console.log("ret", retriever)
-        const relevantDocs = await retriever.invoke("Summarize this document");
-        console.log("docs", relevantDocs)
+        // console.log("Searching for fileName:", fileName);
+        
+        // Try without filter first to debug
+        let relevantDocs;
+        try {
+            relevantDocs = await vectorStore.similaritySearch(
+                "Summarize this document",
+                30,
+                {
+                    must: [
+                        {
+                            key: "fileName",
+                            match: {
+                                value: fileName
+                            }
+                        }
+                    ]
+                }
+            );
+        } catch (filterError) {
+            console.log("Filter failed, trying without filter:", filterError);
+            // Fallback: get all docs and filter manually
+            const allDocs = await vectorStore.similaritySearch("Summarize this document", 100);
+            console.log("Total docs retrieved:", allDocs.length);
+            console.log("Sample metadata:", allDocs[0]?.metadata);
+            relevantDocs = allDocs.filter(doc => doc.metadata.fileName === fileName);
+        }
+        
+        // console.log("Found docs:", relevantDocs.length);
+        // console.log("docs", relevantDocs)
 
         // Combine all chunks into one big context string
         const context = relevantDocs.map((doc) => doc.pageContent).join("\n\n");
-        console.log("context", context)
+        // console.log("context", context)
 
         const response = await client.chat.completions.create({
             model: 'gemini-2.0-flash',
@@ -73,7 +87,7 @@ export async function POST(req: Request) {
                 },
             ],
         });
-        console.log("response", response)
+        // console.log("response", response)
         const summary = response.choices[0]?.message?.content || "No summary generated.";
 
         return NextResponse.json({ summary });
