@@ -5,8 +5,6 @@ import logo from "../../public/assests/images/logo1.png";
 import { useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
-    // Not Responsive
-
     const router = useRouter();
 
     const handleNavigation = (path: string) => {
